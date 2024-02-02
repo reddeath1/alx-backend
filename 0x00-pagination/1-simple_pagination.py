@@ -5,6 +5,7 @@ Simple pagination: index_range
 import csv
 from typing import List, Tuple
 
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
