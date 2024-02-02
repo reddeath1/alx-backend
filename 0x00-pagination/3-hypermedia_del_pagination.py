@@ -39,24 +39,24 @@ class Server:
             }
             return self.__indexed_dataset
 
-        def get_hyper_index(self, index: int = None,
-                            page_size: int = 10) -> Dict:
-            """Dataset get gotten by changing page
-            """
-            dataset = self.indexed_dataset()
-            assert type(index) == int and type(page_size) == int and \
-                   0 <= index < len(dataset)
-            data = []
-            next_page = index
-            for _ in range(page_size):
-                while not dataset.get(next_page):
-                    next_page += 1
-                data.append(dataset.get(next_page))
+    def get_hyper_index(self, index: int = None,
+                        page_size: int = 10) -> Dict:
+        """Dataset get gotten by changing page
+        """
+        dataset = self.indexed_dataset()
+        assert type(index) == int and type(page_size) == int and \
+               0 <= index < len(dataset)
+        data = []
+        next_page = index
+        for _ in range(page_size):
+            while not dataset.get(next_page):
                 next_page += 1
-            new_dict = {
-                "index": index,
-                "data": data,
-                "page_size": page_size,
-                "next_index": next_page
-            }
-            return new_dict
+            data.append(dataset.get(next_page))
+            next_page += 1
+        new_dict = {
+            "index": index,
+            "data": data,
+            "page_size": page_size,
+            "next_index": next_page
+        }
+        return new_dict
