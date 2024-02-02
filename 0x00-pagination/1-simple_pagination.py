@@ -3,13 +3,14 @@
 Simple pagination: index_range
 """
 import csv
-import math
 from typing import List, Tuple
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
+
     def __init__(self):
         self.__dataset = None
 
@@ -24,7 +25,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """ Method: get_page with arguments
+        """Method: get_page with arguments
         """
         assert type(page_size) is int and type(page) is int
         assert page > 0
