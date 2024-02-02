@@ -14,6 +14,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     Prototype: def index_range(page:int, page_size: int)
     Return a Tuple of size
     """
+
     index = page * page_size - page_size
     index_ = index + page_size
     return (index, index_)

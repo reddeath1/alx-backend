@@ -19,8 +19,7 @@ class Server:
         self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
-        """
-	Cached dataset
+        """Cached dataset
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
@@ -31,8 +30,7 @@ class Server:
         return self.__dataset
 
     def indexed_dataset(self) -> Dict[int, List]:
-        """
-	Dataset indexed by sorting position, starting at 0
+        """Dataset indexed by sorting position, starting at 0
         """
         if self.__indexed_dataset is None:
             dataset = self.dataset()
@@ -44,12 +42,11 @@ class Server:
 
         def get_hyper_index(self, index: int = None,
                             page_size: int = 10) -> Dict:
-            """
-		Dataset get from a page
+            """Dataset get from a page
             """
             dataset = self.indexed_dataset()
-            assert type(index) == int and type(page_size) == int and\
-                index >= 0 and index < len(dataset)
+            assert type(index) == int and type(page_size) == int and \
+                   0 <= index < len(dataset)
             data = []
             next_page = index
             for _ in range(page_size):
