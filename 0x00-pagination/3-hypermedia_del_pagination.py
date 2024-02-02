@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deletion resilient hypermedia pagination
+Deletion-resilient hypermedia pagination
 """
 
 import csv
@@ -9,8 +9,7 @@ from typing import List, Dict, Tuple
 
 
 class Server:
-    """
-    Server class to paginate a database of popular baby names.
+    """Class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
@@ -42,7 +41,7 @@ class Server:
 
         def get_hyper_index(self, index: int = None,
                             page_size: int = 10) -> Dict:
-            """Dataset get from a page
+            """Dataset get gotten by changing page
             """
             dataset = self.indexed_dataset()
             assert type(index) == int and type(page_size) == int and \
